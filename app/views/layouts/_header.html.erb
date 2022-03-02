@@ -1,6 +1,6 @@
   <% if user_signed_in? %>
         <li>
-          <%= 'Home'%>
+          <%= link_to 'Home', user_path(current_user.id) %>
         </li>
         <li>
           <%= link_to 'User', users_path %>
