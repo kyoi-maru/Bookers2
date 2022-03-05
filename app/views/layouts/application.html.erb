@@ -12,43 +12,63 @@
   </head>
 
   <body>
-    <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-Dark">
+    <header>
+      <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
         <div class="container">
-          <h3>Bookers</h3>
-          <ul class="navber-nav ml-auto">
-            <% if user_signed_in? %>
-              <li>
-                <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-Dark' %>
-              </li>
-              <li>
-                <%= link_to 'User', users_path, class: 'nav-link text-light' %>
-              </li>
-              <li>
-                <%= link_to 'Books', books_path, class: 'nav-link text-light' %>
-              </li>
-              <li>
-                <%= link_to 'Log_out', destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
-              </li>
+          <a class="navber-brand my-auto text-white h5" href="/" >Bookers</a>
+          <button class="navbar-toggler" type="button" date-toggler="collapse" date-target="#navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navber-toggle-icon"></span>
+          </button>
 
-            <% else %>
-              <li>
-                <%= link_to 'Home', root_path, class: 'nav-link text-light' %>
-              </li>
-              <li>
-                <%= link_to 'About', home_about_path, class: 'nav-link text-light' %>
-              </li>
-              <li>
-                <%= link_to 'Sign_up', new_user_registration_path, class: 'nav-link text-light' %>
-              </li>
-              <li>
-                <%= link_to 'Log_in', new_user_session_path, class: 'nav-link text-light' %>
-              </li>
-            <% end %>
-          </ul>
+          <div class="collapse navbar-collapse" id="#navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <i class="fa-solid fa-house-chimney"></i>
+                  <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-light' %>
+                </li>
+                <li>
+                  <%= link_to 'User', users_path, class: 'nav-link text-light' %>
+                </li>
+                <li>
+                  <%= link_to 'Books', books_path, class: 'nav-link text-light' %>
+                </li>
+                <li>
+                  <%= link_to 'Log_out', destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+                </li>
+
+              <% else %>
+                <li>
+                  <%= link_to 'Home', root_path, class: 'nav-link text-light' %>
+                </li>
+                <li>
+                  <%= link_to 'About', home_about_path, class: 'nav-link text-light' %>
+                </li>
+                <li>
+                  <%= link_to 'Sign_up', new_user_registration_path, class: 'nav-link text-light' %>
+                </li>
+                <li>
+                  <%= link_to 'Log_in', new_user_session_path, class: 'nav-link text-light' %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
-    <%= yield %>
+
+    <main class="mb-auto">
+      <%= yield %>
+    </main>
+
+    <footer>
+      <div class="container mt-5">
+        <div class="row d-flex">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
