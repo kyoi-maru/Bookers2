@@ -1,17 +1,37 @@
-<%= render "users/info" %>
-<h1>Book detail</h1>
-    <h6>
-      <%= link_to @user.name, user_path(current_user.id) %>
-    </h6>
-    <p>
-      <%= link_to @book.title, book_path(@book) %>
-    </p>
-    <p>
-      <%= @book.body %>
-    </p>
-    <p>
-      <%= link_to "Edit",  edit_book_path(@book) %>
-    </p>
-    <p>
-      <%= link_to "Destroy", @book, method: :delete, data: { confirm: '本当に削除しますか？' } %>
-    </p>
+ <div class="container px5 px-sm-0">
+  <div class="row">
+   <div class="col md-3">
+     <h2>User info</h2>
+     <%= render "users/info" %>
+
+     <h2 class="mt-3">New Book</h2>
+     <%= render "users/form" %>
+   </div>
+
+   <div class="col md-8 offset-md-1">
+    <h2>Book detail</h2>
+     <table class="table">
+      <tbody>
+        <tr>
+          <th>
+            <%= image_tag @user.get_profile_image %><br>
+            <%= link_to @user.name, user_path(current_user.id) %>
+          </th>
+          <th>
+            <%= link_to @book.title, book_path(@book) %>
+          </th>
+          <th>
+            <%= @book.body %>
+          </th>
+          <th>
+            <%= link_to "Edit",  edit_book_path(@book) %>
+          </th>
+          <th>
+            <%= link_to "Destroy", @book, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+   </div>
+  </div>
+ </div>

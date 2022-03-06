@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @book = Book.find(params[:id])
+    @book = Book.new
+    @books = @user.books
   end
 
   def edit
@@ -17,14 +18,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path
+    if @user.update(user_params)
+    redirect_to user_path(current_user)
+    else
+    render 'edit'
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image, :introduction)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
 end

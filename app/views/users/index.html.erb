@@ -1,21 +1,26 @@
-<%= render "info" %>
+<div class="container">
+ <div class="row">
+  <%= render "info" %>
 
-<h1>Users</h1>
- <table>
-   <thead>
-     <tr>
-       <th>image</th>
-       <th>name</th>
-       <th colspan="2"></th>
-     </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <% @users.each do |user| %>
-      <td><%= image_tag @user.get_profile_image %></td>
-      <td><%= user.name %></td>
-      <td><%= link_to 'Show', user_path(user.id) %></td>
-     <% end %>
-    </tr>
-   </tbody>
- </table>
+  <div class="col md-8 offset-md-1">
+   <h2>Users</h2>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <% @users.each do |user| %>
+         <td><%= image_tag @user.get_profile_image %></td>
+         <td><%= user.name %></td>
+         <td><%= link_to 'Show', user_path(user.id) %></td>
+        <% end %>
+       </tr>
+      </tbody>
+    </table>
+</div>
+
