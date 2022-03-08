@@ -1,6 +1,6 @@
- <div class="container px5 px-sm-0">
+ <div class="container px-5 px-sm-0">
   <div class="row">
-   <div class="col md-3">
+   <div class="col-md-3">
      <h2>User info</h2>
      <%= render "info" %>
 
@@ -8,9 +8,9 @@
      <%= render "form" %>
    </div>
 
-   <div class="col md-8 offset-md-1">
+   <div class="col-md-8 offset-md-1">
     <h2>Books</h2>
-    <%= render "books/list" %>
-   </div>
+    <%= render "books/list", books_all:@books %>
+
   </div>
  </div>

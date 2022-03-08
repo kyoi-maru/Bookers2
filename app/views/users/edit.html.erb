@@ -3,23 +3,22 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>User info</h2>
       <%= form_with model: @user do |f| %>
-      <form>
         <div class="form-group">
           <label for="inputName">Name</label>
           <br>
-          <input type="name" class="form-control" id="inputName">
+          <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
         </div>
         <div>
           <label for="inputImage">Image</label>
           <br>
-          <input type="file" class="form-control-file" id:="inputImage">
+          <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
         </div>
         <div>
           <label for="inputIntroduction">introduction</label>
           <br>
-          <input type="itroduction" class="form-control" id="inputIntroduction">
+          <%= f.text_area :introduction, autofocus: true, id:"inputName", placeholder:"自己紹介"%>
         </div>
-        <button type="button" class="btn btn-secondary">Update User</button>
+          <%= f.submit "Update User", class:"btn btn-secondary"  %>
       </form>
       <% end %>
     </div>
